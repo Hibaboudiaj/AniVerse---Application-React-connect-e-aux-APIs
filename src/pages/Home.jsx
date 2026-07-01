@@ -1,9 +1,12 @@
 import Hero from "../components/Hero/Hero";
+import TrendingAnime from "../components/TrendingAnime/TrendingAnime";
 
-export default function Home() {
+function Home() {
   return (
     <div>
       <Hero />
+      <TrendingAnime />
     </div>
   );
 }
+export default Home;
