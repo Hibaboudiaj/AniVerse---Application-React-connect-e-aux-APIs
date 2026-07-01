@@ -1,0 +1,324 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 4rem 2rem;
+
+  background: #0c0205;
+  border: 1px solid rgba(136, 19, 55, 0.4);
+  border-radius: 24px;
+
+  text-align: center;
+
+  box-shadow: 0 0 50px rgba(159, 18, 57, 0.08);
+}
+
+.topLine,
+.bottomLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgb(244, 63, 94),
+    transparent
+  );
+
+  box-shadow:
+    0 0 25px rgb(244, 63, 94),
+    0 0 10px rgb(244, 63, 94);
+}
+
+.topLine {
+  top: 0;
+}
+
+.bottomLine {
+  bottom: 0;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 420px;
+  height: 420px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  background: rgba(136, 19, 55, 0.12);
+
+  filter: blur(120px);
+
+  animation: pulse 5s ease-in-out infinite;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(136, 19, 55, 0.15),
+    transparent,
+    rgba(0, 0, 0, 0.65)
+  );
+}
+
+.japaneseText {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 3rem;
+
+  pointer-events: none;
+  user-select: none;
+
+  opacity: 0.03;
+}
+
+.japaneseText span {
+  writing-mode: vertical-rl;
+
+  font-size: 5.5rem;
+  font-weight: 900;
+
+  letter-spacing: 8px;
+
+  color: rgb(244, 63, 94);
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+
+  max-width: 760px;
+  width: 100%;
+}
+
+.topContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.7rem;
+}
+
+.subtitle {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  color: #fb7185;
+
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  color: #f43f5e;
+
+  letter-spacing: 0.22rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: #e11d48;
+
+  animation: ping 1.6s infinite;
+}
+
+.heading {
+  margin-top: 2rem;
+}
+
+.heading h2 {
+  font-size: clamp(1.8rem, 4vw, 3.3rem);
+  font-weight: 900;
+
+  color: #f8fafc;
+
+  line-height: 1.05;
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+}
+
+.heading h1 {
+  margin-top: 0.4rem;
+
+  font-size: clamp(2.5rem, 6vw, 4.7rem);
+
+  font-weight: 900;
+
+  color: #e11d48;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 50px rgba(159, 18, 57, 0.9),
+    0 0 20px rgba(159, 18, 57, 0.5);
+}
+
+.description {
+  margin: 2rem auto 2.5rem;
+
+  max-width: 620px;
+
+  color: #cbd5e1;
+
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 0.9rem 2rem;
+
+  background: #e11d48;
+  color: white;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.35);
+}
+
+.button:hover {
+  background: #f43f5e;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 40px rgba(244, 63, 94, 0.55);
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.button:hover .arrow {
+  transform: translateX(6px);
+}
+
+@keyframes pulse {
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    min-height: 70vh;
+    padding: 4rem 1.5rem;
+  }
+
+  .japaneseText span {
+    font-size: 4rem;
+  }
+
+  .content {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 4rem 1.2rem;
+  }
+
+  .japaneseText {
+    display: none;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .button {
+    padding: 0.85rem 1.7rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .heading h2 {
+    font-size: 1.6rem;
+  }
+
+  .heading h1 {
+    font-size: 2.4rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+}
