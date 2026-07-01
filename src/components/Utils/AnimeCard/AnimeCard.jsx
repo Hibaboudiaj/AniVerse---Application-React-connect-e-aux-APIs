@@ -1,8 +1,4 @@
-import {
-  FaHeart,
-  FaStar,
-  FaRegCalendarAlt,
-} from "react-icons/fa";
+import {FaHeart, FaStar, FaRegCalendarAlt,} from "react-icons/fa";
 
 import { MdOutlineTv } from "react-icons/md";
 
@@ -18,9 +14,7 @@ function AnimeCard({ anime }) {
           {anime.type}
         </span>
 
-        <button className={styles.favorite}>
-          <FaHeart />
-        </button>
+        <button className={styles.favorite}> <FaHeart /> </button>
 
         <span className={styles.score}>
           <FaStar />
