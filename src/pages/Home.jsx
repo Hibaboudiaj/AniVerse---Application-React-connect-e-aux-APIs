@@ -1,12 +1,24 @@
 import Hero from "../components/Hero/Hero";
-import TrendingAnime from "../components/TrendingAnime/TrendingAnime";
+import AnimeSection from "../components/AnimeSection/AnimeSection";
+
+import { HiTrendingUp } from "react-icons/hi";
+
+import trendingAnime from "../data/trendingAnime";
 
 function Home() {
   return (
-    <div>
+    <>
       <Hero />
-      <TrendingAnime />
-    </div>
+
+      <AnimeSection 
+      title="Trending Anime"
+      subtitle="The most popular series in the global community"
+      icon={<HiTrendingUp />}
+      buttonText="VIEW ALL"
+      buttonLink="/anime"
+      animeList={trendingAnime}
+      />
+    </>
   );
 }
 export default Home;
