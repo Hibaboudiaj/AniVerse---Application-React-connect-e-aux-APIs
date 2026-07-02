@@ -1,0 +1,145 @@
+.searchSection {
+  padding: 40px 0;
+  background: #050505;
+}
+
+.container {
+  width: 90%;
+  max-width: 1450px;
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+.header p {
+  margin-top: 8px;
+  color: #8b8b8b;
+  font-size: .95rem;
+}
+
+.searchBox {
+  background: #101010;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.searchBar {
+  display: flex;
+  gap: 14px;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d7d7d;
+}
+
+.inputWrapper input {
+  width: 100%;
+  height: 48px;
+  background: #0b0b0b;
+  border: 1px solid #1d1d1d;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 18px 0 46px;
+  color: white;
+  font-size: .95rem;
+}
+
+.inputWrapper input::placeholder {
+  color: #666;
+}
+
+.searchBar button {
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  background: #232323;
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+  font-weight: 600;
+}
+
+.searchBar button:hover {
+  background: #e11d48;
+}
+
+.filters {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftFilters {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.filterTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9c9c9c;
+  text-transform: uppercase;
+  font-size: .72rem;
+  letter-spacing: 1px;
+}
+
+.filters select {
+  height: 38px;
+  background: #0b0b0b;
+  color: #d5d5d5;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 0 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sort {
+  min-width: 160px;
+}
+
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+  }
+
+  .searchBar button {
+    width: 100%;
+    height: 48px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .leftFilters {
+    flex-wrap: wrap;
+  }
+
+  .filters select {
+    width: 100%;
+  }
+}
