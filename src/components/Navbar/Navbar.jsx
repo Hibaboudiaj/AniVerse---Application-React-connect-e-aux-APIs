@@ -6,6 +6,7 @@ import {
   FiHeart,
   FiBookOpen,
   FiGrid,
+  FiStar,
 } from "react-icons/fi";
 
 import styles from "./Header.module.css";
@@ -24,9 +25,7 @@ export default function Navbar() {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  isActive
-                    ? `${styles.link} ${styles.active}`
-                    : styles.link
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
                 <FiHome />
@@ -38,9 +37,7 @@ export default function Navbar() {
               <NavLink
                 to="/anime"
                 className={({ isActive }) =>
-                  isActive
-                    ? `${styles.link} ${styles.active}`
-                    : styles.link
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
                 <FiPlay />
@@ -52,9 +49,7 @@ export default function Navbar() {
               <NavLink
                 to="/characters"
                 className={({ isActive }) =>
-                  isActive
-                    ? `${styles.link} ${styles.active}`
-                    : styles.link
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
                 <FiUsers />
@@ -66,9 +61,7 @@ export default function Navbar() {
               <NavLink
                 to="/favorites"
                 className={({ isActive }) =>
-                  isActive
-                    ? `${styles.link} ${styles.active}`
-                    : styles.link
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
                 <FiHeart />
@@ -78,11 +71,21 @@ export default function Navbar() {
 
             <li>
               <NavLink
+                to="/my-ratings"
+                className={({ isActive }) =>
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+                }
+              >
+                <FiStar />
+                My Ratings
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
                 to="/my-library"
                 className={({ isActive }) =>
-                  isActive
-                    ? `${styles.link} ${styles.active}`
-                    : styles.link
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
                 <FiBookOpen />
@@ -94,9 +97,7 @@ export default function Navbar() {
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
-                  isActive
-                    ? `${styles.link} ${styles.active}`
-                    : styles.link
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
                 <FiGrid />

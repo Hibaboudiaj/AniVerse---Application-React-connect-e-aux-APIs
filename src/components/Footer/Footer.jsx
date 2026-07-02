@@ -1,10 +1,10 @@
-import styles from "./Footer.module.css"
+import styles from "./Footer.module.css";
 
-function Footer (){
-    return(
-        <fouter className={styles.footer}>
-            <p>© 2026 AniVerse. All Rights Reserved.</p>
-        </fouter>
-    )
+function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <p>© 2026 AniVerse. All Rights Reserved.</p>
+    </footer>
+  );
 }
 export default Footer;

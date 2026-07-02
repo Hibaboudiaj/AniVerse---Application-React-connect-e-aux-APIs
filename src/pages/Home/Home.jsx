@@ -1,24 +1,22 @@
 import Hero from "../../components/Hero/Hero";
-import AnimeSection from "../../components/AnimeSection/AnimeSection";
+// import AnimeSection from "../../components/AnimeSection/AnimeSection";
 
-import { HiTrendingUp } from "react-icons/hi";
-import { LuCalendarDays } from "react-icons/lu";
+// import { HiTrendingUp } from "react-icons/hi";
+// import { LuCalendarDays } from "react-icons/lu";
 
-import trendingAnime from "../data/trendingAnime";
-import seasonalAnime from "../data/seasonalAnime";
 
 function Home() {
   return (
     <>
       <Hero />
-
+{/* 
       <AnimeSection
         title="Trending Anime"
         subtitle="The most popular series in the global community"
         icon={<HiTrendingUp />}
         buttonText="VIEW ALL"
         buttonLink="/anime"
-        animeList={trendingAnime}
+        // animeList={trendingAnime}
       />
 
       <AnimeSection
@@ -27,8 +25,8 @@ function Home() {
       icon={<LuCalendarDays />}
       buttonText="VIEW SEASON"
       buttonLink="/anime"
-      animeList={seasonalAnime}
-      />
+      // animeList={seasonalAnime}
+      /> */}
     </>
   );
 }
