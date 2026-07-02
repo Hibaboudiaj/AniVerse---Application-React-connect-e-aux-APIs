@@ -1,12 +1,13 @@
 import { FiSearch, FiFilter } from "react-icons/fi";
 import styles from "./AnimeSearch.module.css";
 
-function AnimeSearch() {
+function AnimeSearch({ genre, setGenre, search, setSearch }) {
   return (
     <section className={styles.searchSection}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h1>Explore Catalog</h1>
+
           <p>
             Search, filter, and discover your next binge-worthy anime series.
           </p>
@@ -17,7 +18,12 @@ function AnimeSearch() {
             <div className={styles.inputWrapper}>
               <FiSearch className={styles.searchIcon} />
 
-              <input type="text" placeholder="Search anime title..." />
+              <input
+                type="text"
+                placeholder="Search anime title..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
             </div>
 
             <button>Search</button>
@@ -25,20 +31,34 @@ function AnimeSearch() {
 
           <div className={styles.filters}>
             <div className={styles.leftFilters}>
-              <span className={styles.filterTitle}><FiFilter />Filters :
+              <span className={styles.filterTitle}>
+                <FiFilter />
+                Filters :
               </span>
 
-              <select>
-                <aption>All Genres</aption>
+              <select value={genre} onChange={(e) => setGenre(e.target.value)}>
+                <option>All Genres</option>
+                <option>Action</option>
+                <option>Comedy</option>
+                <option>Drama</option>
+                <option>Fantasy</option>
+                <option>Romance</option>
+                <option>Sci-Fi</option>
               </select>
 
               <select>
                 <option>All Formats</option>
+                <option>TV</option>
+                <option>Movie</option>
+                <option>OVA</option>
+                <option>ONA</option>
               </select>
             </div>
 
             <select className={styles.sort}>
               <option>Most Popular</option>
+              <option>Highest Rated</option>
+              <option>Newest</option>
             </select>
           </div>
         </div>
@@ -46,4 +66,5 @@ function AnimeSearch() {
     </section>
   );
 }
+
 export default AnimeSearch;
