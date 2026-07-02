@@ -1,26 +1,12 @@
-import { useEffect } from "react";
 import Hero from "../../components/Hero/Hero";
-import { getTrendingAnime, getSeasonNow } from "../../services/animeService";
+import useAnime from "../../hooks/useAnime";
 
 function Home() {
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const trending = await getTrendingAnime();
-        const seasonal = await getSeasonNow();
+  const { trendingAnime, seasonalAnime } = useAnime();
 
-        console.log("Trending:", trending);
-        console.log("Seasonal:", seasonal);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData();
-  }, []);
-  return (
-    <>
-      <Hero />
-    </>
-  );
+  console.log(trendingAnime);
+  console.log(seasonalAnime);
+  
+  return <Hero />;
 }
 export default Home;
