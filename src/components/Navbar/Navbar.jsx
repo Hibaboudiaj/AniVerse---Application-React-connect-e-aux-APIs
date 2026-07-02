@@ -10,7 +10,7 @@ import {
 
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>

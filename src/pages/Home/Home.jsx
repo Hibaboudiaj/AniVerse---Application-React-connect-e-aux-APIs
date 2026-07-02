@@ -1,5 +1,5 @@
-import Hero from "../components/Hero/Hero";
-import AnimeSection from "../components/AnimeSection/AnimeSection";
+import Hero from "../../components/Hero/Hero";
+import AnimeSection from "../../components/AnimeSection/AnimeSection";
 
 import { HiTrendingUp } from "react-icons/hi";
 import { LuCalendarDays } from "react-icons/lu";
