@@ -1,0 +1,17 @@
+.section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
