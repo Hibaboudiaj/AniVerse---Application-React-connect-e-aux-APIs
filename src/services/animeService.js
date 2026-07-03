@@ -41,3 +41,15 @@ export async function getAnimeCharacters(id) {
 
   return response.data.data;
 }
+
+export async function getTopCharacters() {
+  const response = await api.get("/top/characters");
+
+  return response.data.data;
+}
+
+export async function getCharacterById(id) {
+  const response = await api.get(`/characters/${id}/full`);
+
+  return response.data.data;
+}
