@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { getAnimeCharacters } from "../../services/animeService";
+import { getTopCharacters } from "../../services/animeService";
 
 import styles from "./Characters.module.css";
 
 function Characters() {
-  const { id } = useParams();
-
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -15,7 +13,7 @@ function Characters() {
   useEffect(() => {
     async function fetchCharacters() {
       try {
-        const data = await getAnimeCharacters(id);
+        const data = await getTopCharacters();
         setCharacters(data);
       } catch (err) {
         setError(err.message);
@@ -25,35 +23,35 @@ function Characters() {
     }
 
     fetchCharacters();
-  }, [id]);
+  }, []);
 
   if (loading) return <h2 className={styles.message}>Loading...</h2>;
-
   if (error) return <h2 className={styles.message}>{error}</h2>;
 
   return (
     <div className={styles.container}>
-      <h1>Characters</h1>
+      <h1>Top Characters</h1>
 
       <div className={styles.grid}>
-        {characters.map((item) => (
+        {characters.map((character) => (
           <Link
-            key={item.character.mal_id}
-            to={`/characters/${item.character.mal_id}`}
+            key={character.mal_id}
+            to={`/characters/${character.mal_id}`}
             className={styles.card}
           >
             <img
-              src={item.character.images.jpg.image_url}
-              alt={item.character.name}
+              src={character.images.jpg.image_url}
+              alt={character.name}
             />
 
-            <h3>{item.character.name}</h3>
-
-            <p>{item.role}</p>
+            <div className={styles.info}>
+              <h3>{character.name}</h3>
+            </div>
           </Link>
         ))}
       </div>
     </div>
   );
 }
+
 export default Characters;
