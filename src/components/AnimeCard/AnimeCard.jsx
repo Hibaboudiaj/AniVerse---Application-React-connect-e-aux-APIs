@@ -1,19 +1,68 @@
+import { Link } from "react-router-dom";
+import {
+  FaHeart,
+  FaStar,
+  FaRegCalendarAlt,
+} from "react-icons/fa";
+import { MdOutlineTv } from "react-icons/md";
+
 import styles from "./AnimeCard.module.css";
 
 function AnimeCard({ anime }) {
+  const {
+    mal_id,
+    title,
+    score,
+    type,
+    episodes,
+    year,
+    images,
+  } = anime;
+
   return (
-    <div className={styles.card}>
-      <img
-        src={anime.images.jpg.large_image_url}
-        alt={anime.title}
-      />
+    <Link
+      to={`/anime/${mal_id}`}
+      className={styles.card}
+    >
+      <div className={styles.imageContainer}>
+        <img
+          src={images.jpg.large_image_url}
+          alt={title}
+        />
 
-      <div className={styles.content}>
-        <h3>{anime.title}</h3>
+        <span className={styles.type}>
+          {type}
+        </span>
 
-        <span>⭐ {anime.score}</span>
+        <button
+          className={styles.favorite}
+          onClick={(e) => e.preventDefault()}
+        >
+          <FaHeart />
+        </button>
+
+        <span className={styles.score}>
+          <FaStar />
+          {score || "N/A"}
+        </span>
       </div>
-    </div>
+
+      <div className={styles.info}>
+        <h3>{title}</h3>
+
+        <div className={styles.meta}>
+          <span>
+            <MdOutlineTv />
+            {episodes || "?"} eps
+          </span>
+
+          <span>
+            <FaRegCalendarAlt />
+            {year || "N/A"}
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }
 

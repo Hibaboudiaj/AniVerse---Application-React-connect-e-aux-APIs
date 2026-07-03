@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 import SearchBar from "../../components/AnimeFilters/SearchBar";
+import GenreFilter from "../../components/AnimeFilters/GenreFilter";
 import AnimeSection from "../../components/AnimeSection/AnimeSection";
 
 import { getAnimeList, getGenres } from "../../services/animeService";
 
 import styles from "./Anime.module.css";
 
-import GenreFilter from "../../components/AnimeFilters/GenreFilter";
 
 function Anime() {
   const [animeList, setAnimeList] = useState([]);
@@ -19,7 +19,6 @@ function Anime() {
   const [selectedGenre, setSelectedGenre] = useState("");
 
   const [loading, setLoading] = useState(true);
-
   const [error, setError] = useState("");
 
   useEffect(() => {
