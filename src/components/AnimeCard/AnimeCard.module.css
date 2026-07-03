@@ -1,21 +1,23 @@
 .card {
+  width: 100%;
+  max-width: 225px;
   background: #121212;
   border: 1px solid #252525;
   border-radius: 18px;
   overflow: hidden;
-  transition: .35s;
+  transition: 0.35s;
   cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(99, 102, 241, .5);
-  box-shadow: 0 15px 40px rgba(99, 102, 241, .15);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
 }
 
 .imageContainer {
   position: relative;
-  height: 255px;
+  height: 290px;
   overflow: hidden;
 }
 
@@ -23,10 +25,9 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     to top,
-    rgba(0,0,0,.55),
+    rgba(0, 0, 0, 0.55),
     transparent 50%
   );
 }
@@ -35,7 +36,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: .45s;
+  transition: 0.45s;
 }
 
 .card:hover img {
@@ -44,36 +45,30 @@
 
 .type {
   position: absolute;
-  top: 14px;
-  left: 14px;
-
+  top: 12px;
+  left: 12px;
   z-index: 5;
-
-  background: rgba(18,18,18,.85);
+  background: rgba(18, 18, 18, 0.85);
   color: #ff4040;
-
   padding: 6px 12px;
-
   border-radius: 20px;
-
   font-size: 11px;
   font-weight: 700;
 }
 
 .favorite {
   position: absolute;
-  right: 14px;
-  top: 14px;
-
+  top: 12px;
+  right: 12px;
   z-index: 5;
 
   width: 38px;
   height: 38px;
 
-  border-radius: 50%;
   border: none;
+  border-radius: 50%;
 
-  background: rgba(255,255,255,.18);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(10px);
 
   color: white;
@@ -83,8 +78,7 @@
   align-items: center;
 
   cursor: pointer;
-
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .favorite:hover {
@@ -93,9 +87,8 @@
 
 .score {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
-
+  left: 12px;
+  bottom: 12px;
   z-index: 5;
 
   display: flex;
@@ -103,11 +96,9 @@
   gap: 6px;
 
   background: #f59e0b;
-
   color: #111;
 
   padding: 7px 12px;
-
   border-radius: 10px;
 
   font-size: 13px;
@@ -122,25 +113,21 @@
   color: white;
   font-size: 1rem;
   line-height: 1.4;
-
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
   overflow: hidden;
 
-  min-height: 45px;
+  min-height: 46px;
 }
 
 .meta {
   display: flex;
   justify-content: space-between;
-
   color: #9ca3af;
-
-  font-size: .82rem;
+  font-size: 0.85rem;
 }
 
 .meta span {

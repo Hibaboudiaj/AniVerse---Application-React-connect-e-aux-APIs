@@ -1,7 +1,7 @@
 .section {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 80px auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .title {
@@ -12,6 +12,31 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  justify-items: center;
+}
+
+@media (max-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

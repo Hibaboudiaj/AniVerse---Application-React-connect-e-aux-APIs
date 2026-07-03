@@ -17,3 +17,15 @@ export async function getAnimeById(id) {
 
   return response.data.data;
 }
+
+export async function getAnimeList() {
+  const response = await api.get("/anime");
+
+  return response.data.data;
+}
+
+export async function searchAnime(query) {
+  const response = await api.get(`/anime?q=${query}`);
+
+  return response.data.data;
+}
