@@ -1,18 +1,16 @@
 import Hero from "../../components/Hero/Hero";
 import AnimeSection from "../../components/AnimeSection/AnimeSection";
 import useAnime from "../../hooks/useAnime";
+import TrendingSection from "../../components/TrendingSection/TrendingSection";
 
 function Home() {
-  const {
-    trendingAnime,
-    seasonalAnime,
-    loading,
-    error,
-  } = useAnime();
+  const { trendingAnime, seasonalAnime, loading, error } = useAnime();
 
   return (
     <>
       <Hero />
+
+      
 
       <AnimeSection
         title="Trending Anime"
