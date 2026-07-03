@@ -35,3 +35,9 @@ export async function getGenres() {
 
   return response.data.data;
 }
+
+export async function getAnimeCharacters(id) {
+  const response = await api.get(`/anime/${id}/characters`);
+
+  return response.data.data;
+}

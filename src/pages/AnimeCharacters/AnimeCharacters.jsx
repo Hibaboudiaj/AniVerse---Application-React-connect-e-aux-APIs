@@ -3,9 +3,9 @@ import { Link, useParams } from "react-router-dom";
 
 import { getAnimeCharacters } from "../../services/animeService";
 
-import styles from "./Characters.module.css";
+import styles from "./AnimeCharacters.module.css";
 
-function Characters() {
+function AnimeCharacters() {
   const { id } = useParams();
 
   const [characters, setCharacters] = useState([]);
@@ -28,12 +28,11 @@ function Characters() {
   }, [id]);
 
   if (loading) return <h2 className={styles.message}>Loading...</h2>;
-
   if (error) return <h2 className={styles.message}>{error}</h2>;
 
   return (
     <div className={styles.container}>
-      <h1>Characters</h1>
+      <h1>Anime Characters</h1>
 
       <div className={styles.grid}>
         {characters.map((item) => (
@@ -47,13 +46,15 @@ function Characters() {
               alt={item.character.name}
             />
 
-            <h3>{item.character.name}</h3>
-
-            <p>{item.role}</p>
+            <div className={styles.info}>
+              <h3>{item.character.name}</h3>
+              <p>{item.role}</p>
+            </div>
           </Link>
         ))}
       </div>
     </div>
   );
 }
-export default Characters;
+
+export default AnimeCharacters;
