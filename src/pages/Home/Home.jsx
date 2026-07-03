@@ -1,7 +1,9 @@
 import Hero from "../../components/Hero/Hero";
 import AnimeSection from "../../components/AnimeSection/AnimeSection";
 import useAnime from "../../hooks/useAnime";
-import TrendingSection from "../../components/TrendingSection/TrendingSection";
+import { FaArrowTrendUp } from "react-icons/fa6";
+import SectionHeader from "../../components/TrendingSection/Section.Header";
+import { CiCalendar } from "react-icons/ci";
 
 function Home() {
   const { trendingAnime, seasonalAnime, loading, error } = useAnime();
@@ -9,22 +11,18 @@ function Home() {
   return (
     <>
       <Hero />
-
-      
-
-      <AnimeSection
+      <SectionHeader
         title="Trending Anime"
-        animes={trendingAnime}
-        loading={loading}
-        error={error}
+        subTitle="The most popular series in the global community"
+        icon={<FaArrowTrendUp />}
       />
-
-      <AnimeSection
+      <AnimeSection animes={trendingAnime} loading={loading} error={error} />
+      <SectionHeader
         title="Seasonal Anime"
-        animes={seasonalAnime}
-        loading={loading}
-        error={error}
+        subTitle="The most popular series in the global community"
+        icon={<CiCalendar />}
       />
+      <AnimeSection animes={seasonalAnime} loading={loading} error={error} />
     </>
   );
 }
