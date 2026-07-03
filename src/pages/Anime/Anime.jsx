@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../components/AnimeFilters/SearchBar";
 import AnimeSection from "../../components/AnimeSection/AnimeSection";
 
-import { getAnimeList, searchAnime } from "../../services/animeService";
+import { getAnimeList, getGenres } from "../../services/animeService";
 
 import styles from "./Anime.module.css";
+
+import GenreFilter from "../../components/AnimeFilters/GenreFilter";
 
 function Anime() {
   const [animeList, setAnimeList] = useState([]);
 
   const [search, setSearch] = useState("");
+
+  const [genres, setGenres] = useState([]);
+
+  const [selectedGenre, setSelectedGenre] = useState("");
 
   const [loading, setLoading] = useState(true);
 
@@ -33,17 +39,11 @@ function Anime() {
   }, []);
 
   useEffect(() => {
-    async function fetchSearch() {
-      if (search.trim() === "") {
-        const data = await getAnimeList();
-        setAnimeList(data);
-        return;
-      }
-
+    async function fetchAnime() {
       try {
         setLoading(true);
 
-        const data = await searchAnime(search);
+        const data = await getAnimeList(search, selectedGenre);
 
         setAnimeList(data);
       } catch (err) {
@@ -53,16 +53,36 @@ function Anime() {
       }
     }
 
-    const timer = setTimeout(fetchSearch, 500);
+    const timer = setTimeout(fetchAnime, 500);
 
     return () => clearTimeout(timer);
-  }, [search]);
+  }, [search, selectedGenre]);
+
+  useEffect(() => {
+    async function fetchGenres() {
+      try {
+        const data = await getGenres();
+
+        setGenres(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchGenres();
+  }, []);
 
   return (
     <div className={styles.container}>
       <h1>Anime Library</h1>
 
       <SearchBar value={search} onChange={(e) => setSearch(e.target.value)} />
+
+      <GenreFilter
+        genres={genres}
+        value={selectedGenre}
+        onChange={(e) => setSelectedGenre(e.target.value)}
+      />
 
       <AnimeSection
         title=""

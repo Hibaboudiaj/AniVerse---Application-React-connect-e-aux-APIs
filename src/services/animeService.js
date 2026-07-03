@@ -18,14 +18,20 @@ export async function getAnimeById(id) {
   return response.data.data;
 }
 
-export async function getAnimeList() {
-  const response = await api.get("/anime");
+export async function getAnimeList(search = "", genre = "") {
+  const response = await api.get("/anime", {
+    params: {
+      q: search || undefined,
+      genres: genre || undefined,
+      limit: 24,
+    },
+  });
 
   return response.data.data;
 }
 
-export async function searchAnime(query) {
-  const response = await api.get(`/anime?q=${query}`);
+export async function getGenres() {
+  const response = await api.get("/genres/anime");
 
   return response.data.data;
 }
