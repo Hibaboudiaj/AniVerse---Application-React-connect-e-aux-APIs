@@ -30,7 +30,10 @@ function Characters() {
 
   return (
     <div className={styles.container}>
-      <h1>Top Characters</h1>
+      <div className={styles.header}>
+      <h1>Character Registry</h1>
+      <p>Explore and look up your favorite heroes, antagonists, and sidekicks.</p>
+      </div>
 
       <div className={styles.grid}>
         {characters.map((character) => (
