@@ -11,6 +11,6 @@ export async function addFavorite(anime) {
   return response.data;
 }
 
-export async function removeFavorites(id) {
+export async function removeFavorite(id) {
   await jsonServer.delete(`/favorites/${id}`);
 }

@@ -5,6 +5,7 @@ import FavoriteContext from "./FavoriteContext";
 import {
   getFavorites,
   addFavorite,
+  removeFavorite,
 } from "../../services/favoriteService";
 
 function FavoriteProvider({ children }) {
@@ -28,7 +29,7 @@ function FavoriteProvider({ children }) {
     loadFavorites();
   }
 
-  async function deleteFavorite(id) {
+  async function removeFromFavorites(id) {
     await removeFavorite(id);
     loadFavorites();
   }
@@ -38,11 +39,12 @@ function FavoriteProvider({ children }) {
       value={{
         favorites,
         addToFavorites,
-        deleteFavorite,
+        removeFromFavorites,
       }}
     >
       {children}
     </FavoriteContext.Provider>
   );
 }
+
 export default FavoriteProvider;
