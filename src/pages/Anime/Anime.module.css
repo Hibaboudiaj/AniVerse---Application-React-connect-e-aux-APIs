@@ -1,12 +1,37 @@
 .container {
-  width: min(1200px, 92%);
+  width: min(1400px, 92%);
   margin: 50px auto;
 }
 
-.container h1 {
-  color: white;
+.title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
 
-  font-size: 40px;
+.filtersBox {
+  background: #0b0b0d;
+  border: 1px solid #1c1c22;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 45px;
+}
 
-  margin-bottom: 20px;
+.filters {
+  margin-top: 25px;
+  padding-top: 22px;
+  border-top: 1px solid #1d1d25;
+
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .filtersBox {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
 }

@@ -73,15 +73,18 @@ function Anime() {
 
   return (
     <div className={styles.container}>
-      <h1>Anime Library</h1>
-
+      <h1 className={styles.title}>Anime Library</h1>
+      <div className={styles.filtersBox}>
       <SearchBar value={search} onChange={(e) => setSearch(e.target.value)} />
-
+      </div>
+      
+      <div className={styles.filters}>
       <GenreFilter
         genres={genres}
         value={selectedGenre}
         onChange={(e) => setSelectedGenre(e.target.value)}
       />
+      </div>
 
       <AnimeSection
         title=""
