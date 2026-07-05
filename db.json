@@ -1,13 +1,13 @@
 {
   "favorites": [
     {
-      "mal_id": 19,
-      "title": "Monster",
-      "image": "https://cdn.myanimelist.net/images/anime/10/18793l.jpg",
-      "score": 8.89,
-      "episodes": 74,
+      "mal_id": 24,
+      "title": "School Rumble",
+      "image": "https://cdn.myanimelist.net/images/anime/1465/142014l.jpg",
+      "score": 7.88,
+      "episodes": 26,
       "year": 2004,
-      "id": "jp7SBw1QvVM"
+      "id": "xIPtKLDDU8U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

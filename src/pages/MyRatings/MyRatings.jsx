@@ -1,4 +1,4 @@
 function MyRatings() {
-  return <h1>Anime Page</h1>;
+  return <h1>My Ratings</h1>;
 }
 export default MyRatings;

@@ -1,4 +1,4 @@
 function MyLibrary() {
-  return <h1>Anime Page</h1>;
+  return <h1>My Library</h1>;
 }
 export default MyLibrary;
