@@ -5,6 +5,8 @@ import { MdOutlineTv, MdDateRange } from "react-icons/md";
 
 import { getAnimeById } from "../../services/animeService";
 
+import useFavorite from "../../hooks/useFavorite";
+
 import styles from "./AnimeDetails.module.css";
 
 function AnimeDetails() {
@@ -13,6 +15,8 @@ function AnimeDetails() {
   const [anime, setAnime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const { addToFavorites, favorites } = useFavorite();
 
   useEffect(() => {
     async function fetchAnime() {
@@ -29,6 +33,26 @@ function AnimeDetails() {
     fetchAnime();
   }, [id]);
 
+  async function handleFavorite() {
+    const exists = favorites.find((item) => item.mal_id === anime.mal_id);
+
+    if (exists) {
+      alert("Anime is already in your favorites!");
+      return;
+    }
+
+    await addToFavorites({
+      mal_id: anime.mal_id,
+      title: anime.title,
+      image: anime.images.jpg.large_image_url,
+      score: anime.score,
+      episodes: anime.episodes,
+      year: anime.year,
+    });
+
+    alert("Anime added to favorites!");
+  }
+
   if (loading) return <h2 className={styles.message}>Loading...</h2>;
 
   if (error) return <h2 className={styles.message}>{error}</h2>;
@@ -38,6 +62,7 @@ function AnimeDetails() {
       <div className={styles.left}>
         <img src={anime.images.jpg.large_image_url} alt={anime.title} />
       </div>
+
       <div className={styles.right}>
         <h1>{anime.title}</h1>
 
@@ -77,9 +102,9 @@ function AnimeDetails() {
         <p className={styles.synopsis}>{anime.synopsis}</p>
 
         <div className={styles.buttons}>
-          <button>
+          <button onClick={handleFavorite}>
             <FaHeart />
-            Favorite
+            Add to Favorites
           </button>
 
           {anime.trailer?.url && (

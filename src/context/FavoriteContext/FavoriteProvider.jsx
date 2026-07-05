@@ -5,7 +5,6 @@ import FavoriteContext from "./FavoriteContext";
 import {
   getFavorites,
   addFavorite,
-  removeFavorite,
 } from "../../services/favoriteService";
 
 function FavoriteProvider({ children }) {
@@ -46,4 +45,4 @@ function FavoriteProvider({ children }) {
     </FavoriteContext.Provider>
   );
 }
-export default FavoriteContext;
+export default FavoriteProvider;
